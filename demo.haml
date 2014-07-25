@@ -1,0 +1,43 @@
+!!! 5
+%html
+  %head
+    %script{:type => 'text/javascript', :src=>'http://code.jquery.com/jquery-1.11.0.min.js'}
+    %link{:rel => "stylesheet", :href => "http://tablesorter.com/docs/css/jq.css", :type=> "text/css"}
+    %link{:rel => "stylesheet", :href => "http://tablesorter.com/themes/blue/style.css", :type=> "text/css"}
+    %script{:type => 'text/javascript', :src=>'http://tablesorter.com/__jquery.tablesorter.min.js'}
+    %script{:type => 'text/javascript', :src=>'tablesorter-grouping.js'}
+    :css
+      tr.grouped-row td.key-column {
+        color: gray;
+      }
+    :javascript
+      $(function() {
+        console.log("Adding tablesorter widget");
+        $.tablesorter.addWidget(webonise.tablesorter.grouping);
+        console.log("Creating tablesorter");
+        $("#mytable").tablesorter({widgets: ["grouping"]});
+        console.log("Should be ready to go!");
+      });
+  %body
+    %table#mytable.tablesorter
+      %thead
+        %tr
+          %th.key-column Family
+          %th.key-column Prod Id
+          %th.key-column Site
+          %th Quantity
+          %th Restr
+      %tbody
+        - 50.times do |i|
+          %tr
+            - bool = rand(2) == 1
+            - family = bool ? 'Alfalfa' : 'Soybeans'
+            - product = (bool ? '123' : '456') + '_' + rand(10).to_s
+            - site = rand(2) == 1 ? 'El Paso' : 'Downs'
+            %td= family
+            %td= product
+            %td= site
+            %td= rand(9999)
+            %td
+              - rand(3).times do |*|
+                X
