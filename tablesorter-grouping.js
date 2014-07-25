@@ -28,13 +28,21 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
     // Read the indexes of the key columns from the header
     var keyCols = [];
     $("th", table).each(function(idx) {
-      if($(this).hasClass(keyColumnClass)) keyCols.push(idx);
+      var th = $(this);
+      if(th.hasClass(keyColumnClass)) {
+        keyCols.push(idx);
+      }
     });
 
     // Ensure the key column class is on only the appropriate columns
     $("tr td", table).removeClass(keyColumnClass);
-    $.each(keyCols, function(idx, value) {
-      $("tr td:eq(" + value + ")", table).addClass(keyColumnClass);
+    $("tbody tr").each(function() {
+      var row = $(this);
+      var columns = $("td", row);
+      columns.removeClass(keyColumnClass);
+      $.each(keyCols, function(idx, value) {
+        columns.eq(value).addClass(keyColumnClass);
+      });
     });
 
     // Clear the grouped rows
