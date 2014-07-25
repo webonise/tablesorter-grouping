@@ -16,7 +16,7 @@ Usage
 2. Call `$.tablesorter.addWidget(webonise.tablesorter.grouping);` to register the grouping widget.
 3. When you create your tablesorter, attach the widget: `$("#mytable").tablesorter({widgets: ["grouping"]});`
 4. When you define your table, add the `key-column` class to those `TH` HTML tags which make up your key columns.
-5. Your table will now be grouped by those key columns.
+5. Your table will now be grouped by those key columns. Grouped rows are denoted by having the `grouped-row` class.
 
 Note that neither TableSorter nor the Grouping widget apply any CSS styling by default, so you may not see any change visually at this point. If you examine the elements
 through your developer tools, put breakpoints in the JavaScript, or attach the CSS that the `demo.html` file uses, though, you can then see the changes being made.
