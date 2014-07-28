@@ -1,13 +1,18 @@
 Row Grouping Widget for TableSorter
 ======================================
 
-A widget for [TableSorter](http://tablesorter.com/) that groups columns with a matching key. It provides zebra striping that is sensitive to the grouping
-and tags the grouped rows for your CSS modification pleasure. The `demo.html` file is a basic demo, which is published
+A widget for [TableSorter](http://tablesorter.com/) that groups columns with a matching key. If you have two rows in your table, and the keys of the two rows are the same,
+then it will group those two rows together by attaching the `grouped-row` class.
+In addition, it provides zebra striping on a for-group basis: the first group of rows is tagged with the `odd` class, the next
+group of rows with the `even` class, the next with the `odd` class, and so on.
+All of this enables you to customize the appearance of your sorted table based on the groups of rows, instead of based on rows individually.
+These groupings are all automatically recalculated when you sort the table.
+The `demo.html` file is a basic demo, which is published
 [here](http://files.enfranchisedmind.com/tablesorter-grouping/demo.html): to see the sorting magic in action, hold the shift key and click on the
-first thread headers.
+first three headers.
 
-All this widget does is apply CSS classes to denote key columns and grouped rows (including making the zebra stripe classes match within groups). It is your job to make
-those CSS classes do what you want them to do.
+Please note that all this widget does is apply CSS classes to denote key columns and grouped rows, and to make the zebra stripe classes match within groups.
+It is your job to make those CSS classes do what you want them to do.
 
 Usage
 -------
