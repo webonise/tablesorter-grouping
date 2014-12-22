@@ -13,7 +13,8 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
   classes.odd = "odd";                  // "odd" for zebra striping
   classes.groupedRow = "grouped-row";   // 2nd and later "grouped" row
   classes.keyColumn = "key-column";     // a column that constitutes the key
-
+  classes.sortedAZColumn = "sorted-a-z"; //is the column sorted?
+  classes.sortedZAColumn = "sorted-z-a";
   widget.format = function(table) {
     // Just be sure we've got a jQuery object here
     table = $(table);
@@ -24,18 +25,25 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
     var evenClass = this.cssClasses.even;
     var oddClass = this.cssClasses.odd;
     var zebraClasses = evenClass + " " + oddClass;
+	var sortdata = table.data('tablesorter').sortList
+	
+	//gets sorted columns
+	var sortCol = [];
+	$.each(sortdata,function(idx){
+		sortCol.push(sortdata[idx][0])
+	});
 
-    // Read the indexes of the key columns from the header
+	    // Read the indexes of the key columns from the header	
     var keyCols = [];
     $("th", table).each(function(idx) {
       var th = $(this);
-      if(th.hasClass(keyColumnClass)) {
+      if(th.hasClass(keyColumnClass) && (($.inArray(idx, sortCol)) > -1)) {
+
         keyCols.push(idx);
       }
     });
-
-    // Ensure the key column class is on only the appropriate columns
-    $("tr td", table).removeClass(keyColumnClass);
+console.log(keyCols);
+	    // Ensure the key column class is on only the appropriate columns
     $("tbody tr").each(function() {
       var row = $(this);
       var columns = $("td", row);
@@ -44,12 +52,16 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
         columns.eq(value).addClass(keyColumnClass);
       });
     });
+	
+   
+
 
     // Clear the grouped rows
     $("tr", table).removeClass(groupedRowClass);
 
     // Identify the grouped rows
     var previousColumns = null;
+	
     $("tr", table).each(function(idx) {
       // Get a handle on the current row
       var currentRow = $(this);
@@ -66,7 +78,7 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
 
       // If this row matches the previous, add the groupedRowClass
       var matches = true;
-      $.each(keyCols, function(idx, value) {
+		$.each(keyCols, function(idx, value) {
         matches = matches && (previousColumns.eq(value).text() === currentColumns.eq(value).text());
       });
       if(matches) currentRow.addClass(groupedRowClass);
