@@ -13,8 +13,6 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
   classes.odd = "odd";                  // "odd" for zebra striping
   classes.groupedRow = "grouped-row";   // 2nd and later "grouped" row
   classes.keyColumn = "key-column";     // a column that constitutes the key
-  classes.sortedAZColumn = "sorted-a-z"; //is the column sorted?
-  classes.sortedZAColumn = "sorted-z-a";
   widget.format = function(table) {
     // Just be sure we've got a jQuery object here
     table = $(table);
