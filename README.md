@@ -26,7 +26,7 @@ Usage
 5. Your table will now be grouped by those key columns. Grouped rows are denoted by having the `grouped-row` class.
 
 Note that neither TableSorter nor the Grouping widget apply any CSS styling by default, so you may not see any change visually at this point. If you examine the elements
-through your developer tools, put breakpoints in the JavaScript, or attach the CSS that the `demo.html` file uses, though, you can then see the changes being made.
+through your developer tools, put breakpoints in the JavaScript, or import the CSS that the `demo.html` file uses, though, you can then see the changes being made.
 
 Configuration
 ---------------
