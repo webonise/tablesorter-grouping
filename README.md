@@ -3,8 +3,10 @@ Row Grouping Widget for TableSorter
 
 A widget for [TableSorter](http://tablesorter.com/) that groups columns with a matching key. If you have two rows in your table, and the keys of the two rows are the same,
 then it will group those two rows together by attaching the `grouped-row` class.
+
 In addition, it provides zebra striping on a for-group basis: the first group of rows is tagged with the `odd` class, the next
 group of rows with the `even` class, the next with the `odd` class, and so on.
+
 All of this enables you to customize the appearance of your sorted table based on the groups of rows, instead of based on rows individually.
 These groupings are all automatically recalculated when you sort the table.
 The `demo.html` file is a basic demo, which is published
