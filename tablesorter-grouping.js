@@ -1,11 +1,12 @@
-if(typeof($.tablesorter) === 'undefined') {
-  console.error("Please load tablesorter before loading the grouping widget. Things are about to fail.");
-}
+(function($) {
+  if(typeof($) === 'undefined') {
+    console.error("Please load jQuery before loading the TableSorter grouping widget. Aborting the widget load.");
+    return;
+  } else if(typeof($.tablesorter) === 'undefined') {
+    console.error("Please load TableSorter before loading the grouping widget. Aborting the widget load.");
+    return;
+  }
 
-if(typeof(webonise) === 'undefined') webonise = {};
-if(!webonise.tablesorter) webonise.tablesorter = {};
-
-(function() {
   var widget = {};
   widget.id = 'grouping'; // ID to register the widget under
   var classes = widget.cssClasses = {};
@@ -96,5 +97,7 @@ if(!webonise.tablesorter) webonise.tablesorter = {};
     });
   };
 
+  if(typeof(webonise) === 'undefined') webonise = {};
+  if(!webonise.tablesorter) webonise.tablesorter = {};
   webonise.tablesorter.grouping = widget;
-})();
+})(jQuery);
