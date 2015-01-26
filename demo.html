@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
     <script src='http://code.jquery.com/jquery-1.11.0.min.js' type='text/javascript'></script>
     <link href='http://tablesorter.com/docs/css/jq.css' rel='stylesheet' type='text/css'>
     <link href='http://tablesorter.com/themes/blue/style.css' rel='stylesheet' type='text/css'>
@@ -8,7 +9,7 @@
     <script src='tablesorter-grouping.js' type='text/javascript'></script>
     <style>
       tr.grouped-row td.key-column {
-        opacity: 0;
+        opacity: 0.25;
       }
     </style>
     <script>
@@ -24,8 +25,12 @@
   <body>
     <p>
       The key columns here are <b>Family</b>, <b>Prod Id</b>, and <b>Site</b>. If all three of those columns match the corresponding three columns in the
-      previous row, then it is treated as a group, and the key columns are marked out. (The "marking out" is demonstrating the functionality, but not
-      built into the system: see the <code>style</code> block in the header of this file. You can implement whatever behavior you would like.)
+      previous row, then it is treated as a group, and the key columns are greyed out.
+    </p>
+    <p>
+      <b>NOTE:</b> The "greying out" is added in this file to demonstrate the plugin's functionality. Like TableSorter itself, this plugin does not add
+      any styling itself, but simply assigns the classes so that you can add whatever styling you would like.
+      <br /> See the <code>style</code> block in the header for more details.
     </p>
     <table class='tablesorter' id='mytable'>
       <thead>
@@ -39,79 +44,130 @@
       </thead>
       <tbody>
         <tr>
-          <td>Alfalfa</td>
-          <td>123_9</td>
+          <td>Soybeans</td>
+          <td>456_6</td>
           <td>Downs</td>
-          <td>8733</td>
+          <td>7872</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_5</td>
+          <td>Downs</td>
+          <td>7077</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_0</td>
+          <td>El Paso</td>
+          <td>801</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_5</td>
+          <td>El Paso</td>
+          <td>7733</td>
           <td>
           </td>
         </tr>
         <tr>
           <td>Soybeans</td>
-          <td>456_4</td>
-          <td>El Paso</td>
-          <td>8095</td>
+          <td>456_3</td>
+          <td>Downs</td>
+          <td>6851</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_3</td>
+          <td>Downs</td>
+          <td>3727</td>
           <td>
           </td>
         </tr>
         <tr>
           <td>Alfalfa</td>
-          <td>123_0</td>
+          <td>123_1</td>
           <td>Downs</td>
-          <td>8856</td>
+          <td>8815</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_6</td>
+          <td>El Paso</td>
+          <td>3518</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_3</td>
+          <td>Downs</td>
+          <td>9424</td>
           <td>
           </td>
         </tr>
         <tr>
           <td>Soybeans</td>
           <td>456_9</td>
+          <td>Downs</td>
+          <td>9646</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_5</td>
           <td>El Paso</td>
-          <td>2764</td>
+          <td>4341</td>
           <td>
             X
           </td>
         </tr>
         <tr>
           <td>Alfalfa</td>
-          <td>123_4</td>
+          <td>123_5</td>
           <td>Downs</td>
-          <td>7085</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_4</td>
-          <td>El Paso</td>
-          <td>3325</td>
+          <td>6381</td>
           <td>
             X
           </td>
         </tr>
         <tr>
-          <td>Soybeans</td>
-          <td>456_4</td>
-          <td>El Paso</td>
-          <td>8718</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_1</td>
-          <td>El Paso</td>
-          <td>2128</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_8</td>
+          <td>Alfalfa</td>
+          <td>123_5</td>
           <td>Downs</td>
-          <td>7050</td>
+          <td>6972</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_3</td>
+          <td>Downs</td>
+          <td>7290</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_5</td>
+          <td>Downs</td>
+          <td>3742</td>
           <td>
             X
             X
@@ -120,8 +176,124 @@
         <tr>
           <td>Alfalfa</td>
           <td>123_3</td>
+          <td>Downs</td>
+          <td>2247</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_1</td>
           <td>El Paso</td>
-          <td>6447</td>
+          <td>7174</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_5</td>
+          <td>Downs</td>
+          <td>6062</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_4</td>
+          <td>El Paso</td>
+          <td>7847</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_2</td>
+          <td>Downs</td>
+          <td>8885</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_7</td>
+          <td>Downs</td>
+          <td>1294</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_7</td>
+          <td>El Paso</td>
+          <td>6622</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_6</td>
+          <td>El Paso</td>
+          <td>7337</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_6</td>
+          <td>Downs</td>
+          <td>2055</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_7</td>
+          <td>Downs</td>
+          <td>9721</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_2</td>
+          <td>El Paso</td>
+          <td>9192</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_8</td>
+          <td>Downs</td>
+          <td>9475</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_2</td>
+          <td>El Paso</td>
+          <td>143</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_4</td>
+          <td>Downs</td>
+          <td>1486</td>
           <td>
             X
             X
@@ -131,77 +303,17 @@
           <td>Alfalfa</td>
           <td>123_7</td>
           <td>Downs</td>
-          <td>3617</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_1</td>
-          <td>Downs</td>
-          <td>4576</td>
+          <td>4391</td>
           <td>
             X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_2</td>
-          <td>El Paso</td>
-          <td>5500</td>
-          <td>
             X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_4</td>
-          <td>El Paso</td>
-          <td>5765</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_1</td>
-          <td>Downs</td>
-          <td>7105</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_7</td>
-          <td>Downs</td>
-          <td>4140</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_4</td>
-          <td>Downs</td>
-          <td>90</td>
-          <td>
           </td>
         </tr>
         <tr>
           <td>Alfalfa</td>
           <td>123_2</td>
           <td>Downs</td>
-          <td>2619</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_1</td>
-          <td>El Paso</td>
-          <td>5665</td>
+          <td>5921</td>
           <td>
             X
             X
@@ -211,245 +323,17 @@
           <td>Soybeans</td>
           <td>456_6</td>
           <td>El Paso</td>
-          <td>8520</td>
+          <td>4102</td>
           <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_8</td>
-          <td>El Paso</td>
-          <td>5998</td>
-          <td>
+            X
             X
           </td>
         </tr>
         <tr>
           <td>Alfalfa</td>
           <td>123_5</td>
-          <td>Downs</td>
-          <td>545</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_1</td>
-          <td>Downs</td>
-          <td>2247</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_6</td>
           <td>El Paso</td>
-          <td>9973</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_3</td>
-          <td>Downs</td>
-          <td>564</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_6</td>
-          <td>El Paso</td>
-          <td>5006</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_5</td>
-          <td>El Paso</td>
-          <td>2288</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_3</td>
-          <td>Downs</td>
-          <td>5786</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_3</td>
-          <td>El Paso</td>
-          <td>7747</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_8</td>
-          <td>El Paso</td>
-          <td>3095</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_0</td>
-          <td>Downs</td>
-          <td>4152</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_4</td>
-          <td>El Paso</td>
-          <td>2303</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_1</td>
-          <td>Downs</td>
-          <td>1903</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_6</td>
-          <td>Downs</td>
-          <td>8784</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_7</td>
-          <td>Downs</td>
-          <td>1935</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_3</td>
-          <td>El Paso</td>
-          <td>9303</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_4</td>
-          <td>Downs</td>
-          <td>5770</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_7</td>
-          <td>El Paso</td>
-          <td>1754</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_2</td>
-          <td>Downs</td>
-          <td>819</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_9</td>
-          <td>El Paso</td>
-          <td>7974</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_2</td>
-          <td>Downs</td>
-          <td>5796</td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_5</td>
-          <td>Downs</td>
-          <td>8525</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_5</td>
-          <td>El Paso</td>
-          <td>9656</td>
-          <td>
-            X
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_1</td>
-          <td>El Paso</td>
-          <td>5203</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_1</td>
-          <td>Downs</td>
-          <td>6448</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Alfalfa</td>
-          <td>123_4</td>
-          <td>El Paso</td>
-          <td>5320</td>
+          <td>3352</td>
           <td>
             X
           </td>
@@ -457,17 +341,8 @@
         <tr>
           <td>Alfalfa</td>
           <td>123_9</td>
-          <td>Downs</td>
-          <td>8112</td>
-          <td>
-            X
-          </td>
-        </tr>
-        <tr>
-          <td>Soybeans</td>
-          <td>456_4</td>
           <td>El Paso</td>
-          <td>6860</td>
+          <td>3936</td>
           <td>
             X
             X
@@ -475,18 +350,148 @@
         </tr>
         <tr>
           <td>Soybeans</td>
-          <td>456_7</td>
+          <td>456_5</td>
           <td>Downs</td>
-          <td>742</td>
+          <td>4993</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_0</td>
+          <td>Downs</td>
+          <td>3128</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_9</td>
+          <td>El Paso</td>
+          <td>1164</td>
           <td>
             X
           </td>
         </tr>
         <tr>
           <td>Alfalfa</td>
+          <td>123_3</td>
+          <td>El Paso</td>
+          <td>6912</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_2</td>
+          <td>Downs</td>
+          <td>2374</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_9</td>
+          <td>El Paso</td>
+          <td>7161</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_5</td>
+          <td>El Paso</td>
+          <td>6411</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_7</td>
+          <td>El Paso</td>
+          <td>2245</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_8</td>
+          <td>El Paso</td>
+          <td>8200</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_8</td>
+          <td>Downs</td>
+          <td>8180</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_4</td>
+          <td>Downs</td>
+          <td>4974</td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
           <td>123_1</td>
           <td>El Paso</td>
-          <td>4986</td>
+          <td>9272</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_6</td>
+          <td>Downs</td>
+          <td>8308</td>
+          <td>
+            X
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_6</td>
+          <td>Downs</td>
+          <td>1488</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Soybeans</td>
+          <td>456_9</td>
+          <td>El Paso</td>
+          <td>7825</td>
+          <td>
+            X
+          </td>
+        </tr>
+        <tr>
+          <td>Alfalfa</td>
+          <td>123_6</td>
+          <td>Downs</td>
+          <td>9033</td>
           <td>
             X
             X

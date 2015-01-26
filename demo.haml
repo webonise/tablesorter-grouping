@@ -1,6 +1,7 @@
 !!! 5
 %html
   %head
+    %link{:rel => "stylesheet", :href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", :type => "text/css"}
     %script{:type => 'text/javascript', :src=>'http://code.jquery.com/jquery-1.11.0.min.js'}
     %link{:rel => "stylesheet", :href => "http://tablesorter.com/docs/css/jq.css", :type=> "text/css"}
     %link{:rel => "stylesheet", :href => "http://tablesorter.com/themes/blue/style.css", :type=> "text/css"}
@@ -8,7 +9,7 @@
     %script{:type => 'text/javascript', :src=>'tablesorter-grouping.js'}
     :css
       tr.grouped-row td.key-column {
-        opacity: 0;
+        opacity: 0.25;
       }
     :javascript
       $(function() {
@@ -21,8 +22,12 @@
   %body
     %p
       The key columns here are <b>Family</b>, <b>Prod Id</b>, and <b>Site</b>. If all three of those columns match the corresponding three columns in the
-      previous row, then it is treated as a group, and the key columns are marked out. (The "marking out" is demonstrating the functionality, but not
-      built into the system: see the <code>style</code> block in the header of this file. You can implement whatever behavior you would like.)
+      previous row, then it is treated as a group, and the key columns are greyed out.
+
+    %p
+      <b>NOTE:</b> The "greying out" is added in this file to demonstrate the plugin's functionality. Like TableSorter itself, this plugin does not add
+      any styling itself, but simply assigns the classes so that you can add whatever styling you would like.
+      <br /> See the <code>style</code> block in the header for more details.
 
     %table#mytable.tablesorter
       %thead
