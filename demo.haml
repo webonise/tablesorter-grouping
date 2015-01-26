@@ -19,6 +19,11 @@
         console.log("Should be ready to go!");
       });
   %body
+    %p
+      The key columns here are <b>Family</b>, <b>Prod Id</b>, and <b>Site</b>. If all three of those columns match the corresponding three columns in the
+      previous row, then it is treated as a group, and the key columns are marked out. (The "marking out" is demonstrating the functionality, but not
+      built into the system: see the <code>style</code> block in the header of this file. You can implement whatever behavior you would like.)
+
     %table#mytable.tablesorter
       %thead
         %tr
