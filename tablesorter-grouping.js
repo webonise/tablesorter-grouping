@@ -14,6 +14,8 @@
   classes.odd = "odd";                  // "odd" for zebra striping
   classes.groupedRow = "grouped-row";   // 2nd and later "grouped" row
   classes.keyColumn = "key-column";     // a column that constitutes the key
+  classes.groupNum = "tablesorter-grouping-group-";  //adds group numbers incremented by rowGroupIndex
+
   widget.format = function(table) {
 
     // Just be sure we've got a jQuery object here
@@ -25,6 +27,8 @@
     var evenClass = this.cssClasses.even;
     var oddClass = this.cssClasses.odd;
     var zebraClasses = evenClass + " " + oddClass;
+    var groupNumClass = this.cssClasses.groupNum;
+
 
     // Read the indexes of the key columns from the header
     var keyCols = [];
@@ -45,8 +49,8 @@
       });
     });
 
-    // Clear the grouped rows
-    $("tr", table).removeClass(groupedRowClass);
+    // Reset all the classes
+    $("tr", table).removeClass();
 
     // Identify the grouped rows
     var previousColumns = null;
@@ -94,6 +98,30 @@
       if(!currentRow.hasClass(zebraClass)) { // Don't mess with it if it is okay
         currentRow.removeClass(zebraClasses).addClass(zebraClass);
       }
+    });
+
+    var rowGroupIndex = 0;
+    var previousRow;
+
+    //Apply table group numbers
+    $("tr", table).each(function(idx) {
+      var currentRow = $(this);
+
+      if(previousRow === undefined) previousRow = currentRow;
+        
+      //Add the class to the first row in the group
+      if(currentRow.hasClass(groupedRowClass) && !previousRow.hasClass(groupedRowClass))
+        previousRow.addClass(groupNumClass+rowGroupIndex);
+    
+      //Add the correct group number to the grouped rows
+      if(currentRow.hasClass(groupedRowClass))
+        currentRow.addClass(groupNumClass+rowGroupIndex);
+
+     //Decides whether its at the end of a group and increments the index
+      if(previousRow.hasClass(groupedRowClass) && !currentRow.hasClass(groupedRowClass))
+          rowGroupIndex++;
+
+      previousRow = currentRow;
     });
   };
 
